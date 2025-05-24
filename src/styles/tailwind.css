@@ -1,0 +1,168 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
+/* Custom CSS Variables */
+:root {
+  /* Primary Colors */
+  --color-leaf: #16a34a; /* green-600 */
+  --color-leaf-light: #22c55e; /* green-500 */
+  --color-leaf-dark: #15803d; /* green-700 */
+  --color-soil: #b45309; /* amber-700 */
+  --color-wheat: #facc15; /* yellow-400 */
+
+  /* Neutral Colors */
+  --color-white: #ffffff; /* white */
+  --color-off-white: #f9fafb; /* gray-50 */
+  --color-light-gray: #f3f4f6; /* gray-100 */
+  --color-medium-gray: #d1d5db; /* gray-300 */
+  --color-dark-gray: #4b5563; /* gray-600 */
+  --color-charcoal: #1f2937; /* gray-800 */
+
+  /* Semantic Colors */
+  --color-success: #22c55e; /* green-500 */
+  --color-warning: #f59e0b; /* amber-500 */
+  --color-error: #ef4444; /* red-500 */
+  --color-info: #3b82f6; /* blue-500 */
+  --color-sky: #38bdf8; /* sky-400 */
+  --color-harvest: #fb923c; /* orange-400 */
+
+  /* Border Radius */
+  --border-radius-sm: 0.25rem;
+  --border-radius: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
+}
+
+/* Custom Animation Classes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-fade-out {
+  animation: fadeOut 0.3s ease-in-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.4s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.4s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.animate-pulse-custom {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Custom Component Classes */
+@layer components {
+  /* Button Styles */
+  .btn-primary {
+    @apply bg-leaf text-white font-medium px-4 py-2 rounded transition-all duration-200 
+    hover:bg-leaf-dark focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-opacity-50 
+    active:transform active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply border border-leaf text-leaf font-medium px-4 py-2 rounded transition-all duration-200 
+    hover:bg-leaf hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-opacity-50 
+    active:transform active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .btn-tertiary {
+    @apply text-leaf font-medium px-4 py-2 rounded transition-all duration-200 
+    hover:bg-leaf hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-opacity-50 
+    active:transform active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .btn-destructive {
+    @apply bg-error text-white font-medium px-4 py-2 rounded transition-all duration-200 
+    hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-error focus:ring-opacity-50 
+    active:transform active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  /* Card Styles */
+  .card {
+    @apply bg-white rounded-lg shadow-md p-4 backdrop-blur-sm border border-medium-gray border-opacity-20;
+  }
+
+  .card-interactive {
+    @apply bg-white rounded-lg shadow-md p-4 cursor-pointer transition-all duration-200 
+    hover:shadow-lg hover:translate-y-[-2px] focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-opacity-50;
+  }
+
+  .card-feature {
+    @apply bg-white rounded-lg shadow-md p-4 border-l-4 border-leaf;
+  }
+
+  .card-stat {
+    @apply bg-white rounded-lg shadow-md p-4 flex flex-col items-center justify-center text-center;
+  }
+
+  /* Input Styles */
+  .input-field {
+    @apply w-full px-3 py-2 bg-white border border-medium-gray rounded-md 
+    focus:outline-none focus:ring-2 focus:ring-leaf focus:border-transparent 
+    disabled:bg-light-gray disabled:cursor-not-allowed;
+  }
+
+  .input-label {
+    @apply block text-sm font-medium text-dark-gray mb-1;
+  }
+
+  .input-error {
+    @apply text-xs text-error mt-1;
+  }
+
+  /* Glassmorphism */
+  .glassmorphism {
+    @apply bg-white bg-opacity-70 backdrop-blur-md border border-medium-gray border-opacity-20;
+  }
+}
